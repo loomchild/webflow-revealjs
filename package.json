@@ -4,7 +4,8 @@
   "description": "A simple script to allow using Reveal.js in Webflow.",
   "scripts": {
     "build": "esbuild index.js style.css --bundle --minify --sourcemap --outdir=dist; npm run build-themes",
-    "build-themes": "cp -r node_modules/reveal.js/dist/theme dist/themes"
+    "serve": "npm run build-themes; esbuild index.js style.css --bundle --outdir=dist --servedir=dist --serve=8001",
+    "build-themes": "mkdir -p dist; cp -r node_modules/reveal.js/dist/theme dist/themes"
   },
   "publishConfig": {
     "access": "public"
