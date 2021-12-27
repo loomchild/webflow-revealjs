@@ -1,0 +1,44 @@
+{
+  "name": "@loomchild/webflow-revealjs",
+  "version": "1.0.0",
+  "description": "A simple script to allow using Reveal.js in Webflow.",
+  "scripts": {
+    "build": "esbuild index.js style.css --bundle --minify --sourcemap --outdir=dist; npm run build-themes",
+    "build-themes": "cp -r node_modules/reveal.js/dist/theme dist/themes"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loomchild/webflow-revealjs.git"
+  },
+  "keywords": [
+    "revealjs",
+    "webflow",
+    "presentation",
+    "slides",
+    "deck"
+  ],
+  "author": "Jarek Lipski",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/loomchild/webflow-revealjs/issues"
+  },
+  "homepage": "https://github.com/loomchild/webflow-revealjs",
+  "main": "dist/index.js",
+  "files": [
+    "dist/*"
+  ],
+  "dependencies": {
+    "reveal.js": "^4.2.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.14.8",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.0.0"
+  }
+}

@@ -1,0 +1,71 @@
+:root {
+  --d-width: var(--deck-width, 960px);
+  --d-height: var(--deck-height, 700px);
+  --d-margin: var(--deck-margin, 0.02);
+  --d-horizontal-padding: calc(var(--d-margin) * var(--d-width));
+  --d-vertical-padding: calc(var(--d-margin) * var(--d-height));
+}
+
+html.wf-design-mode .reveal,
+html.w-editor .reveal {
+  height: auto;
+}
+
+html.wf-design-mode .reveal .slides,
+html.w-editor .reveal .slides {
+  position: static;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 40px;
+  pointer-events: auto;
+}
+
+html.wf-design-mode .reveal .slides > section,
+html.wf-design-mode .reveal .slides > section > section,
+html.w-editor .reveal .slides > section,
+html.w-editor .reveal .slides > section > section {
+  position: static;
+  width: calc(var(--d-width) + 2 * var(--d-horizontal-padding));
+  height: calc(var(--d-height) + 2 * var(--d-vertical-padding));
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  outline: 1px solid #00000020;
+  box-shadow: 5px 10px 10px 0 #00000020;
+  pointer-events: auto;
+  margin: 0 auto;
+  padding: var(--d-vertical-padding) var(--d-horizontal-padding);
+}
+
+html.wf-design-mode .reveal .slides > section::before,
+html.wf-design-mode .reveal .slides > section > section::before,
+html.w-editor .reveal .slides > section::before,
+html.w-editor .reveal .slides > section > section::before {
+  content: "";
+  position: absolute;
+  z-index: -10;
+  top: var(--d-vertical-padding);
+  bottom: var(--d-vertical-padding);
+  left: var(--d-horizontal-padding);
+  right: var(--d-horizontal-padding);
+  outline: 1px dashed #00000020;
+}
+
+html.wf-design-mode .wrapper,
+html.w-editor .wrapper {
+  max-height: 100%;
+}
+
+.button-remove-editor {
+  position: fixed;
+  right: 12px;
+  bottom: 62px;
+  padding: 8px 12px;
+  border: 1px solid rgb(209, 209, 209);
+  border-radius: 3px;
+}
+
+.button-remove-editor:hover {
+  background: #fff;
+}
