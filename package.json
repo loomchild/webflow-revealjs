@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "description": "A simple script to allow using Reveal.js in Webflow.",
   "scripts": {
-    "build": "esbuild index.js style.css --bundle --minify --sourcemap --outdir=dist; npm run build-themes",
+    "build": "esbuild index.js style.css --bundle --minify --sourcemap --legal-comments=none --outdir=dist; npm run build-themes",
     "serve": "npm run build-themes; esbuild index.js style.css --bundle --outdir=dist --servedir=dist --serve=8001",
     "build-themes": "mkdir -p dist; cp -r node_modules/reveal.js/dist/theme dist/themes",
     "purge": "http post https://purge.jsdelivr.net path:='[\"/npm/@loomchild/webflow-revealjs@1/dist/index.js\", \"/npm/@loomchild/webflow-revealjs@1/dist/index.js.map\", \"/npm/@loomchild/webflow-revealjs@1/dist/style.css\"]'",
