@@ -22,19 +22,23 @@ function updateOptionsFromProperties (options) {
     options = {}
   }
 
-  const newOptions = {}
   const rootStyle = window.getComputedStyle(document.documentElement)
 
+  const newOptions = { ...options }
+
+  delete newOptions.width
   const width = rootStyle.getPropertyValue('--deck-width')
   if (width && width.includes('px')) {
     newOptions.width = Number(width.replace('px', ''))
   }
 
+  delete newOptions.height
   const height = rootStyle.getPropertyValue('--deck-height')
   if (height && height.includes('px')) {
     newOptions.height = Number(height.replace('px', ''))
   }
 
+  delete newOptions.margin
   const margin = rootStyle.getPropertyValue('--deck-margin')
   if (margin) {
     newOptions.margin = Number(margin)
