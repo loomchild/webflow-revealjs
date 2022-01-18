@@ -63,11 +63,12 @@ injectButtonIfEditor()
 
 function configureSlideBackgrounds () {
   const slides = document.querySelectorAll('.reveal .slides > section, .reveal .slides > section > section')
+  console.log(slides)
   for (const slide of slides) {
     const style = window.getComputedStyle(slide)
     if (style.background && !slide.getAttribute('data-background')) {
       slide.setAttribute('data-background', style.background)
-      slide.style.background = null
+      slide.style.background = 'none'
     }
   }
 }
