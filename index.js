@@ -61,6 +61,18 @@ async function injectButtonIfEditor () {
 }
 injectButtonIfEditor()
 
+function configureSlideBackgrounds () {
+  const slides = document.querySelectorAll('.reveal .slides > section, .reveal .slides > section > section')
+  for (const slide of slides) {
+    const style = window.getComputedStyle(slide)
+    if (style.background && !slide.getAttribute('data-background')) {
+      slide.setAttribute('data-background', style.background)
+      slide.style.background = null
+    }
+  }
+}
+configureSlideBackgrounds()
+
 class WebflowReveal extends OriginalReveal {
   constructor (options = {}) {
     super(updateOptionsFromProperties(options))
