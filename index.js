@@ -67,7 +67,7 @@ function configureSlideBackgrounds () {
   for (const slide of slides) {
     const style = window.getComputedStyle(slide)
 
-    if (style.backgroundColor) {
+    if (style.backgroundColor && style.backgroundColor !== 'rgba(0, 0, 0, 0)') {
       slide.setAttribute('data-background-color', style.backgroundColor)
       slide.style.backgroundColor = 'transparent'
     }
